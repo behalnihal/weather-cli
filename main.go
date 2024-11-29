@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+
 	"github.com/joho/godotenv"
 )
 
@@ -19,18 +20,18 @@ func main() {
 	apiKey := os.Getenv("API_KEY")
 	fmt.Print("Enter city name: ")
 	fmt.Scan(&city)
-	api := "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
-	response, err := http.Get(api)
+	// api := "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
+	forecastApi := "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey
+	// response, err := http.Get(api)
+	response, err := http.Get(forecastApi)
 
 	if err != nil {
-		fmt.Print(err.Error())
-		os.Exit(1)
+		fmt.Println(err)
+	}else{
+		res, err := io.ReadAll(response.Body)
+		if err != nil {
+			fmt.Println(err)
+		}
+		fmt.Print(string(res))
 	}
-
-	responseData, err := io.ReadAll(response.Body)
-	if err !=  nil {
-		log.Fatal(err)
-	}
-
-	fmt.Println(string(responseData))
 }

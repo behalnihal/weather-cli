@@ -1,0 +1,44 @@
+{
+  "coord": {
+    "lon": 81.85,
+    "lat": 25.45
+  },
+  "weather": [
+    {
+      "id": 800,
+      "main": "Clear",
+      "description": "clear sky",
+      "icon": "01d"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 299.13,
+    "feels_like": 299.13,
+    "temp_min": 299.13,
+    "temp_max": 299.13,
+    "pressure": 1012,
+    "humidity": 23,
+    "sea_level": 1012,
+    "grnd_level": 1001
+  },
+  "visibility": 10000,
+  "wind": {
+    "speed": 1.79,
+    "deg": 317,
+    "gust": 1.93
+  },
+  "clouds": {
+    "all": 0
+  },
+  "dt": 1732267808,
+  "sys": {
+    "country": "IN",
+    "sunrise": 1732236914,
+    "sunset": 1732275758
+  },
+  "timezone": 19800,
+  "id": 1278994,
+  "name": "Allahabad",
+  "cod": 200
+}
