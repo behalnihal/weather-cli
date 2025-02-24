@@ -3,7 +3,11 @@ package main
 import (
 	"fmt"
 	"io"
+	"log"
 	"net/http"
+	"os"
+
+	"github.com/joho/godotenv"
 )
 
 
@@ -34,7 +38,12 @@ type Weather struct {
 }
 
 func main() {
-	res, err := http.Get("http://api.weatherapi.com/v1/forecast.json?key=3659cbd1f7ce437db0c70911252402&q=Gurgaon&aqi=yes");
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error Loading .env file")
+	}
+	api_key := os.Getenv("API_KEY")
+	res, err := http.Get("http://api.weatherapi.com/v1/forecast.json?key=" + api_key + "&q=Gurgaon&aqi=yes");
 	if err != nil{
 		panic(err);
 	}
